@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CropWise</title>
+  <link rel="stylesheet" href="../static/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+  <style>
+   h1 {
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+   button{
+    display:block;
+    margin: 0 auto;
+   }
+    body{
+      background-color:  #18332f;
+    }
+    .navbar-collapse{
+  justify-content: center;
+  }
+.navbar-nav .nav-item {
+  margin: 0 10px; /* Adjust the margin as needed */
+}
+
+.navbar-nav .nav-link {
+  color: rgba(179, 164, 78, 1);
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+}
+.navbar-nav .nav-item .nav-link.activeTab {
+    color: white;
+    border-bottom: 2px solid rgb(116, 99, 35); /* Set the underline color and thickness */
+  }
+  .navbar-toggler-icon {
+  background-color: rgba(179, 164, 78, 1); ;
+}
+    
+
+   .divider {
+  border: none;
+  height: 2px; 
+  background-color: #000; 
+  margin: 0; 
+   }
+
+#prediction-container{
+  background-color: #000;
+  color: white;
+}
+
+ section .set{
+  position: absolute;
+  width: 100%;
+  height:100%;
+  top:0;
+  left: 0;
+  pointer-events: none;
+ }
+ section .set div{
+  position:absolute;
+  display:block; 
+ }
+
+ section .set div:nth-child(1)
+ {
+  left: 20%;
+  animation: animate 15s linear infinite;
+  animation-delay: -7s;
+ }
+ section .set div:nth-child(2)
+ {
+  left: 50%;
+  animation: animate 20s linear infinite;
+  animation-delay: -5s;
+ }
+ section .set div:nth-child(3)
+ {
+  left: 70%;
+  animation: animate 20s linear infinite;
+  animation-delay: 0s;
+ }
+ section .set div:nth-child(4)
+ {
+  left: 0%;
+  animation: animate 15s linear infinite;
+  animation-delay: -5s;
+ }
+ section .set div:nth-child(5)
+ {
+  left: 85%;
+  animation: animate 18s linear infinite;
+  animation-delay: -10s;
+ }
+ section .set div:nth-child(6)
+ {
+  left: 0%;
+  animation: animate 12s linear infinite;
+ }
+ section .set div:nth-child(7)
+ {
+  left: 15%;
+  animation: animate 14s linear infinite;
+ }
+ section .set div:nth-child(8)
+ {
+  left: 60%;
+  animation: animate 15s linear infinite;
+ }
+
+ @keyframes animate
+ {
+    0%
+    {
+      opacity: 0;
+      top:-10%;
+      transform:translateX(20px) rotate(0deg);
+    }
+    10%
+    {
+    opacity:1;
+    }
+    20%
+    {
+      transform: translateX(-20) rotate(45deg)
+    }
+    40%
+    {
+      transform: translateX(-20) rotate(90deg)
+    }
+    60%
+    {
+      transform: translateX(20px) rotate(180deg);
+    }
+    80%
+    {
+      transform: translateX(-20px) rotate(180deg);
+    }
+    100%
+    {
+      top:110%;
+      transform: translateX(-20px) rotate(225deg);
+    }
+ }
+
+ .falling-leaves {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Set z-index to -1 to position it behind other elements */
+}
+
+#video-container{
+  display:flex;
+  justify-content: center;
+}
+
+  </style>
+</head>
+<body>
+  <section class="falling-leaves">
+    <div class="set">
+      <div><img src="..\static\leaves1.png"></div>
+      <div><img src="..\static\leaves2.png"></div>
+      <div><img src="..\static\leaves3.png"></div>
+      <div><img src="..\static\leaves4.png"></div>
+      <div><img src="..\static\leaves1.png"></div>
+      <div><img src="..\static\leaves2.png"></div>
+      <div><img src="..\static\leaves3.png"></div>
+      <div><img src="..\static\leaves4.png"></div>
+    </div>
+  </section>
+  
+  <h1 class="header">CROPWISE.</h1>
+  <nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="chatbot.html">ChatBot</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="disease.html">Disease Detection</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="rocketchatembed.html">Community</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="helpline.html">Helpline</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link activeTab" href="livestream.html">Farmers Live</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="segment.html">Land Segmentation</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div id="google_api">
+    <script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+    <script>
+      function loadGoogleTranslate(){
+        new google.translate.TranslateElement("google_api");
+      }
+    </script>
+    </div>
+    <h1>Live Video Feed</h1>
+    <div id="video-container" width="320" height="240">
+        <img id="video-feed" />
+    </div>
+    <button id="capture-button" onclick="captureFrame()">Save Image</button>
+    <form class="p-3 text-center" action='#', method="post" enctype="multipart/form-data">
+      <!-- <input class="form-control" type="text" name="crop" > -->
+      
+      <select class="crop_select form-select mb-3" name="crop">
+        <option value="Potato">Potato</option>
+        <option value="Bell pepper">Bell Pepper</option>
+        <option value="Tomato">Tomato</option>
+      </select>
+      <input class="btn btn-primary mt-3"type="submit" value="Predict Image" >
+    </form>
+    <div id="prediction-container">
+      {% if prediction %}
+        <p class="text-center"> {{crop}} in image may have {{prediction}}</p>
+      {% endif %}
+    </div>
+    <script>
+      const videoFeed = document.getElementById('video-feed');
+      videoFeed.style.width = '320px'; // Set the desired width in pixels
+videoFeed.style.height = '240px'; // Set the desired height in pixels
+const canvas = document.createElement('canvas'); // Create canvas outside the event listener
+
+function updateVideoFeed() {
+    // Add a query parameter to the URL to prevent caching
+    videoFeed.src = "{{ url_for('video_feed') }}" + "?time=" + new Date().getTime();
+}
+
+// Update the video feed initially and then every second
+updateVideoFeed();
+setInterval(updateVideoFeed, 1000);
+
+videoFeed.addEventListener('loadedmetadata', function() {
+    // The video metadata has been loaded, now you can capture frames
+    setInterval(captureFrame, 1000);  // Capture frames every 1 second
+    
+    // Set canvas dimensions based on video metadata
+    canvas.width = videoFeed.videoWidth;
+    canvas.height = videoFeed.videoHeight;
+});
+
+function captureFrame() {
+    canvas.getContext('2d').drawImage(videoFeed, 0, 0, canvas.width, canvas.height);
+    var imgData = canvas.toDataURL('image/png');
+    /*
+    var downloadLink = document.createElement('a');
+    downloadLink.href = imgData;
+    downloadLink.download = 'captured_image.png'; // Specify the filename for the downloaded image
+    downloadLink.textContent = 'Download Image';
+
+    // Append the download link to the document body
+    document.body.appendChild(downloadLink);
+
+    // Programmatically trigger a click event on the download link
+    downloadLink.click();
+
+    // Remove the download link from the document
+    document.body.removeChild(downloadLink);
+    */
+    
+    
+    //const imageData = imgData.replace(/^data:image\/(png|jpg);base64,/, '');
+
+    // Send the captured frame data to the server using AJAX
+    fetch('/save_frame', {
+        method: 'POST',
+        body: JSON.stringify({ image_data: imgData }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.message);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+    
+}
+
+    </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

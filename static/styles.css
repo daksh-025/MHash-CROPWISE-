@@ -1,0 +1,16 @@
+body{
+  background-size: cover; /* This property scales the image to cover the entire background */
+  background-repeat: no-repeat; /* Prevents image repetition */
+  background-attachment: fixed; /* Keeps the background fixed while scrolling */
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  font-weight: 800;
+}
+.header{
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  font-size: 4em;
+  font-weight: 800;
+  text-align: center;
+  
+}
+
+

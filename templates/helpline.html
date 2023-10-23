@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CropWise</title>
+  <link rel="stylesheet" href="../static/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+ 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <style>
+    
+    h1{
+    color: aliceblue;
+  }
+    body{
+      background-color:  #18332f;
+    }
+    
+   .navbar-collapse{
+  justify-content: center;
+  }
+.navbar-nav .nav-item {
+  margin: 0 10px; /* Adjust the margin as needed */
+}
+
+.navbar-nav .nav-link {
+  color: rgba(179, 164, 78, 1);
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+}
+.navbar-nav .nav-item .nav-link.activeTab {
+    color: white;
+    border-bottom: 2px solid rgb(116, 99, 35); /* Set the underline color and thickness */
+  }
+  .navbar-toggler-icon {
+  background-color: rgba(179, 164, 78, 1); ;
+}
+    
+    
+    .lead{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+      font-weight: 800;
+      display: flex;
+      justify-content: center;
+      font-weight: bold;
+      color: rgb(62, 106, 62);
+      text-align: center; /* Align text to the left */
+      max-width: 100%; /* Set maximum width to prevent overflow */
+    }
+ section .set{
+  position: absolute;
+  width: 100%;
+  height:100%;
+  top:0;
+  left: 0;
+  pointer-events: none;
+ }
+ section .set div{
+  position:absolute;
+  display:block; 
+ }
+
+ section .set div:nth-child(1)
+ {
+  left: 20%;
+  animation: animate 15s linear infinite;
+  animation-delay: -7s;
+ }
+ section .set div:nth-child(2)
+ {
+  left: 50%;
+  animation: animate 20s linear infinite;
+  animation-delay: -5s;
+ }
+ section .set div:nth-child(3)
+ {
+  left: 70%;
+  animation: animate 20s linear infinite;
+  animation-delay: 0s;
+ }
+ section .set div:nth-child(4)
+ {
+  left: 0%;
+  animation: animate 15s linear infinite;
+  animation-delay: -5s;
+ }
+ section .set div:nth-child(5)
+ {
+  left: 85%;
+  animation: animate 18s linear infinite;
+  animation-delay: -10s;
+ }
+ section .set div:nth-child(6)
+ {
+  left: 0%;
+  animation: animate 12s linear infinite;
+ }
+ section .set div:nth-child(7)
+ {
+  left: 15%;
+  animation: animate 14s linear infinite;
+ }
+ section .set div:nth-child(8)
+ {
+  left: 60%;
+  animation: animate 15s linear infinite;
+ }
+
+ @keyframes animate
+ {
+    0%
+    {
+      opacity: 0;
+      top:-10%;
+      transform:translateX(20px) rotate(0deg);
+    }
+    10%
+    {
+    opacity:1;
+    }
+    20%
+    {
+      transform: translateX(-20) rotate(45deg)
+    }
+    40%
+    {
+      transform: translateX(-20) rotate(90deg)
+    }
+    60%
+    {
+      transform: translateX(20px) rotate(180deg);
+    }
+    80%
+    {
+      transform: translateX(-20px) rotate(180deg);
+    }
+    100%
+    {
+      top:110%;
+      transform: translateX(-20px) rotate(225deg);
+    }
+ }
+
+ .falling-leaves {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Set z-index to -1 to position it behind other elements */
+  }
+  .hero{
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-weight: 800;
+    flex: 1;
+    height: 700px;
+  text-align: center;
+  border-radius: 10px;
+  max-width: 100%; /* Limit the maximum width */
+  padding: 20px; /* Add some padding for space */
+  margin: 0 auto;
+  font-size: 16px;
+}
+
+ .row.justify-content-center {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  max-width: 100%;
+  margin: 0 auto; /* Center the table */
+
+}
+.table {
+  width: 100%;
+  height: auto;
+  border-collapse: collapse;
+  table-layout: fixed;
+  max-width: 90%;
+}
+
+
+.table th, .table td {
+  white-space: wrap;
+  font-size: 14px;
+  min-width: 150px;
+  border: 1px solid black;
+  background-color: #9fbbaa;
+  margin-bottom: 20px;
+}
+
+
+.hero th, .hero td {
+  padding: 12px 16px;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.hero th {
+  background-color: #18332f;
+  color: white;
+}
+
+.hero a {
+  color:#007bff;
+  text-decoration: none;
+}
+
+.hero a:hover {
+  text-decoration: underline;
+}
+
+.hero p {
+  display: flex;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+  /* Set fixed width for columns */
+.hero th:nth-child(1), .hero td:nth-child(1) {
+  min-width: 150px; /* Adjust as needed */
+}
+
+.hero th:nth-child(2), .hero td:nth-child(2) {
+  min-width: 200px; /* Adjust as needed */
+}
+
+.hero th:nth-child(3), .hero td:nth-child(3) {
+  min-width: 300px; /* Adjust as needed */
+}
+
+  .center-heading {
+      text-align: center;
+    }
+
+    .boxed-text {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+      font-weight: 800;
+      
+    display: inline-block;
+     margin-top: 5%;
+      padding: 10px 20px;
+      
+    }
+
+    .boxed-text h1 {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+      font-weight: 800;
+      margin: 0;
+      color: rgba(151, 218, 165, 1);
+      font-weight: bold;
+      border-bottom: 2px solid rgb(31, 58, 31)
+    }
+    h3{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+
+  </style>
+</head>
+<body>
+  <section class="falling-leaves">
+    <div class="set">
+      <div><img src="..\static\leaves1.png"></div>
+      <div><img src="..\static\leaves2.png"></div>
+      <div><img src="..\static\leaves3.png"></div>
+      <div><img src="..\static\leaves4.png"></div>
+      <div><img src="..\static\leaves1.png"></div>
+      <div><img src="..\static\leaves2.png"></div>
+      <div><img src="..\static\leaves3.png"></div>
+      <div><img src="..\static\leaves4.png"></div>
+    </div>
+  </section>
+  <h1 class="header">CROPWISE.</h1>
+  <nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="chatbot.html">ChatBot</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="disease.html">Disease Detection</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="rocketchatembed.html">Community</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link activeTab" href="helpline.html">Helpline</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="livestream.html">Farmers Live</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="segment.html">Land Segmentation</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div id="google_api">
+    <script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+    <script>
+      function loadGoogleTranslate(){
+        new google.translate.TranslateElement("google_api");
+      }
+    </script>
+    </div>
+    <div class="center-heading">
+      <div class="boxed-text">
+    <h1>Farmer Schemes</h1>
+    </div>
+    </div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+  <div class="px-4 py-5 my-5 text-center hero">
+      <h3 class="lead mb-4">Source: Vikaspedia</h3>
+      <table class="table table-responsive">
+        <table class="table">
+       
+      <tr>
+          <th>Name</th>
+          <th>URL</th>
+          <th>Description</th>
+      </tr>
+      {% for index in range(nameList|length) %}
+          <tr>
+              <td>{{ nameList[index] }}</td>
+              <td><a href="{{ urlList[index] }}">{{ urlList[index] }}</a></td>
+              <td>{{ list1[index] }}</td>
+          </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+    <div class="col-lg-6">
+    <div class="px-4 py-5 my-5 text-center hero">
+      <h3 class="lead mb-4">Source: Nabard</h3>
+      <table class="table table-responsive">
+        <table class="table">
+      <tr>
+          <th>Name</th>
+          <th>URL</th>
+      </tr>
+      {% for index in range(l2|length) %}
+          <tr>
+              <td>{{ l2[index] }}</td>
+              <td><a href="{{ urlList2[index] }}">{{ urlList2[index] }}</a></td>
+          </tr>
+      {% endfor %}
+  </table>
+  </div>
+</div>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

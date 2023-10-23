@@ -1,0 +1,282 @@
+<!--
+<h2>Login</h2>
+<form method="POST">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br><br>
+    <input type="submit" value="Login">
+</form>
+-->
+<!---->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CropWise</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One&family=Lobster&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+  <style>
+    h1{
+    color: aliceblue;
+  }
+    body{
+      background-color:  #18332f;
+    }
+    .nav-link{
+      color: rgba(45, 68, 50, 0.86);
+      padding: 10px 20px; /* Adjust padding for better spacing */
+    }
+    .header{
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+    font-weight: 800;
+  font-size: 3em;
+  text-align: center;
+  
+}
+    .hero{
+      background-color: rgb(169, 182, 168);
+      opacity: 0.7;
+      border-radius: 50px;
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+    .lead{
+      font-weight: bold;
+    }
+    .activeTab{
+      border-bottom: 2px solid rgb(100, 161, 100); /* Set the underline color and thickness */
+     color: forestgreen; /* Set the text color */
+     text-decoration: none; /* Remove the default underline */
+     color: whitesmoke;
+    }
+
+    .features{
+      background-color: rgb(169, 182, 168);
+      opacity: 0.7;
+      border-radius: 50px;
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+    .features .col {
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box; 
+    }
+    h1{
+      color: lightgray;
+    }
+    .bg-lightgrey {
+    background-color: #dcdcdcd5; /* Set the desired light grey color */
+    }
+    .text-center{
+      color: rgba(151, 218, 165, 1);
+      font-family: 'Alumni Sans Collegiate One', sans-serif; 
+      font-size: 4rem;
+    }
+
+
+.custom-input {
+  font-family: 'Alumni Sans Collegiate One', sans-serif; 
+  color: #ced7d2; /* Change the text color */
+}
+
+.btn-custom {
+  background-color: rgba(151, 218, 165,1); /* Change the button background color */
+  border-color:rgba(151, 218, 165, 1); /* Change the button border color */
+  color: #fff; /* Change the button text color */
+}
+
+.btn-custom:hover {
+  background-color: rgba(151, 218, 165, 1); /* Change the button background color on hover */
+  border-color: rgba(151, 218, 165, 1); /* Change the button border color on hover */
+}
+
+ .form-label{
+  color: rgba(151, 218, 165, 1);
+  
+  font-size: 20px;
+ }
+
+
+    section .set{
+  position: absolute;
+  width: 100%;
+  height:100%;
+  top:0;
+  left: 0;
+  pointer-events: none;
+    }
+    section .set div{
+  position:absolute;
+  display:block; 
+ }
+
+ section .set div:nth-child(1)
+ {
+  left: 20%;
+  animation: animate 15s linear infinite;
+  animation-delay: -7s;
+ }
+ section .set div:nth-child(2)
+ {
+  left: 50%;
+  animation: animate 20s linear infinite;
+  animation-delay: -5s;
+ }
+ section .set div:nth-child(3)
+ {
+  left: 70%;
+  animation: animate 20s linear infinite;
+  animation-delay: 0s;
+ }
+ section .set div:nth-child(4)
+ {
+  left: 0%;
+  animation: animate 15s linear infinite;
+  animation-delay: -5s;
+ }
+ section .set div:nth-child(5)
+ {
+  left: 85%;
+  animation: animate 18s linear infinite;
+  animation-delay: -10s;
+ }
+ section .set div:nth-child(6)
+ {
+  left: 0%;
+  animation: animate 12s linear infinite;
+ }
+ section .set div:nth-child(7)
+ {
+  left: 15%;
+  animation: animate 14s linear infinite;
+ }
+ section .set div:nth-child(8)
+ {
+  left: 60%;
+  animation: animate 15s linear infinite;
+ }
+
+ @keyframes animate
+ {
+    0%
+    {
+      opacity: 0;
+      top:-10%;
+      transform:translateX(20px) rotate(0deg);
+    }
+    10%
+    {
+    opacity:1;
+    }
+    20%
+    {
+      transform: translateX(-20) rotate(45deg)
+    }
+    40%
+    {
+      transform: translateX(-20) rotate(90deg)
+    }
+    60%
+    {
+      transform: translateX(20px) rotate(180deg);
+    }
+    80%
+    {
+      transform: translateX(-20px) rotate(180deg);
+    }
+    100%
+    {
+      top:110%;
+      transform: translateX(-20px) rotate(225deg);
+    }
+ }
+
+ .falling-leaves {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Set z-index to -1 to position it behind other elements */
+}
+
+.content {
+  position: relative; /* Make sure the content container is positioned */
+  z-index: 1; /* Set a higher z-index to keep it above the falling leaves */
+}
+.bg-lightgrey {
+    background-color: #dcdcdcd5; /* Set the desired light grey color */
+    }
+  </style>
+</head>
+<body>
+  <section class="falling-leaves">
+    <div class="set">
+      <div><img src="..\static\leaves1.png"></div>
+      <div><img src="..\static\leaves2.png"></div>
+      <div><img src="..\static\leaves3.png"></div>
+      <div><img src="..\static\leaves4.png"></div>
+      <div><img src="..\static\leaves1.png"></div>
+      <div><img src="..\static\leaves2.png"></div>
+      <div><img src="..\static\leaves3.png"></div>
+      <div><img src="..\static\leaves4.png"></div>
+    </div>
+  </section>
+  <h1 class="header">CROPWISE.</h1>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-lightgrey"></nav>
+  <header class="d-flex justify-content-center py-3">
+    <ul class="nav nav-pills">
+      
+      <li class="nav-item"><a href="./login" class="nav-link activeTab">Login</a></li>
+      <li class="nav-item"><a href="./register" class="nav-link">Register</a></li>
+    </ul>
+  </header>
+  <div id="google_api">
+    <script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+    <script>
+      function loadGoogleTranslate(){
+        new google.translate.TranslateElement("google_api");
+      }
+    </script>
+    </div>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-6 mx-auto">
+        <h2 class="text-center">Login</h2>
+        <form method="POST">
+          <div class="mb-3">
+            <label for="username" class="form-label"><b>Username:</b></label>
+            <input type="text" class="form-control custom-input" id="username" name="username" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label"><b>Password:</b></label>
+            <input type="password" class="form-control custom-input" id="password" name="password" required>
+          </div>
+          <button type="submit" class="btn btn-custom">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+<script>
+  window.onload = function() {
+    alert('Invalid Login Try Again!');
+};
+</script>
+
+
+</body>
+</html>
+
+
+
+

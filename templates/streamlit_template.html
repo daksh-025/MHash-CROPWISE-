@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CropWise</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <style>
+     h1{
+    color: aliceblue;
+  }
+    body{
+      background-color:  #18332f;
+    }
+    
+   .navbar-collapse{
+  justify-content: center;
+  }
+.navbar-nav .nav-item {
+  margin: 0 10px; /* Adjust the margin as needed */
+}
+
+.navbar-nav .nav-link {
+  color: rgba(179, 164, 78, 1);
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+}
+.navbar-nav .nav-item .nav-link.activeTab {
+    color: white;
+    border-bottom: 2px solid rgb(116, 99, 35); /* Set the underline color and thickness */
+  }
+  .navbar-toggler-icon {
+  background-color: rgba(179, 164, 78, 1); ;
+}
+    .hero{
+      background-color: rgb(169, 182, 168);
+      opacity: 0.7;
+      border-radius: 50px;
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+    .lead{
+      font-weight: bold;
+    }
+    .features{
+      background-color: rgb(169, 182, 168);
+      opacity: 0.7;
+      border-radius: 50px;
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+    .features .col {
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box; 
+    }
+    section .set{
+  position: absolute;
+  width: 100%;
+  height:100%;
+  top:0;
+  left: 0;
+  pointer-events: none;
+ }
+ section .set div{
+  position:absolute;
+  display:block; 
+ }
+
+ section .set div:nth-child(1)
+ {
+  left: 20%;
+  animation: animate 15s linear infinite;
+  animation-delay: -7s;
+ }
+ section .set div:nth-child(2)
+ {
+  left: 50%;
+  animation: animate 20s linear infinite;
+  animation-delay: -5s;
+ }
+ section .set div:nth-child(3)
+ {
+  left: 70%;
+  animation: animate 20s linear infinite;
+  animation-delay: 0s;
+ }
+ section .set div:nth-child(4)
+ {
+  left: 0%;
+  animation: animate 15s linear infinite;
+  animation-delay: -5s;
+ }
+ section .set div:nth-child(5)
+ {
+  left: 85%;
+  animation: animate 18s linear infinite;
+  animation-delay: -10s;
+ }
+ section .set div:nth-child(6)
+ {
+  left: 0%;
+  animation: animate 12s linear infinite;
+ }
+ section .set div:nth-child(7)
+ {
+  left: 15%;
+  animation: animate 14s linear infinite;
+ }
+ section .set div:nth-child(8)
+ {
+  left: 60%;
+  animation: animate 15s linear infinite;
+ }
+
+ @keyframes animate
+ {
+    0%
+    {
+      opacity: 0;
+      top:-10%;
+      transform:translateX(20px) rotate(0deg);
+    }
+    10%
+    {
+    opacity:1;
+    }
+    20%
+    {
+      transform: translateX(-20) rotate(45deg)
+    }
+    40%
+    {
+      transform: translateX(-20) rotate(90deg)
+    }
+    60%
+    {
+      transform: translateX(20px) rotate(180deg);
+    }
+    80%
+    {
+      transform: translateX(-20px) rotate(180deg);
+    }
+    100%
+    {
+      top:110%;
+      transform: translateX(-20px) rotate(225deg);
+    }
+ }
+
+ .falling-leaves {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Set z-index to -1 to position it behind other elements */
+}
+  </style>
+</head>
+<body>
+  <section class="falling-leaves">
+    <div class="set">
+      <div><img src="..\static\leaves1.png"></div>
+      <div><img src="..\static\leaves2.png"></div>
+      <div><img src="..\static\leaves3.png"></div>
+      <div><img src="..\static\leaves4.png"></div>
+      <div><img src="..\static\leaves1.png"></div>
+      <div><img src="..\static\leaves2.png"></div>
+      <div><img src="..\static\leaves3.png"></div>
+      <div><img src="..\static\leaves4.png"></div>
+    </div>
+  </section>
+  <h1 class="header">CROPWISE.</h1>
+  <nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link activeTab" href="chatbot.html">ChatBot</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="disease.html">Disease Detection</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="rocketchatembed.html">Community</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="helpline.html">Helpline</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="livestream.html">Farmers Live</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="segment.html">Land Segmentation</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div id="google_api">
+    <script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+    <script>
+      function loadGoogleTranslate(){
+        new google.translate.TranslateElement("google_api");
+      }
+    </script>
+    </div>
+  
+  <iframe src="http://localhost:8501/?embed=true" width="100%" height="800px" frameborder="0"></iframe>
+  <script src="../static/script.js"></script>  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+  
+  </html>

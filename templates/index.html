@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CropWise</title>
+  <link rel="stylesheet" href="../static/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+  <style>
+
+h1{
+    color: aliceblue;
+  }
+    body{
+      background-color:  #18332f;
+    }
+    
+   .navbar-collapse{
+  justify-content: center;
+  }
+.navbar-nav .nav-item {
+  margin: 0 10px; /* Adjust the margin as needed */
+}
+
+.navbar-nav .nav-link {
+  color: rgba(179, 164, 78, 1);
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+}
+.navbar-nav .nav-item .nav-link.activeTab {
+    color: white;
+    border-bottom: 2px solid rgb(116, 99, 35); /* Set the underline color and thickness */
+  }
+  .navbar-toggler-icon {
+  background-color: rgba(179, 164, 78, 1); ;
+}
+  .weather-container { 
+      background-color: #5d9e6e;
+      color: aliceblue;
+      border-radius: 10px;
+      width: auto;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  text-align: center; /* Center the text */
+    }
+
+.box2{
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 7%;
+  margin-right: 7%;
+  margin-top: 7%;
+  margin-bottom: auto;
+}
+@media (max-width: 980px) {
+  .box2 {
+    font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+    font-weight: 800;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.weather-title {
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: aliceblue;
+  opacity: 1;
+}
+ .box2,h1 {
+     font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+    font-weight: 800;
+    color: azure;
+}
+
+    .lead{
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+      font-weight: 800;
+      color: rgba(151, 218, 165, 1);
+      text-align: left; /* Align text to the left */
+       /* Set maximum width to prevent overflow */
+    }
+    .features{
+      opacity: 0.7;
+      border-radius: 50px;
+      margin-left: 5%;
+      margin-right: 5%;
+      display: flex; /* Make the container a flex container */
+      flex-wrap: wrap; /* Allow wrapping to the next line on smaller screens */
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .featItems{
+      flex: 1; /* Distribute available space equally among items */
+      margin-bottom: 1rem; /* Add some margin between items */
+      padding: 2rem; /* Add padding to separate content */
+      box-sizing: border-box; /* Include padding in the width */
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: transform 0.3s;
+      
+    }
+    .featItems > div {
+      width: 100%; /* Make sure content takes full width */
+    }
+
+   .divider {
+  border: none;
+  height: 2px; 
+  background-color: #000; 
+  margin: 0; 
+   }
+
+.bg-lightgrey {
+    background-color: #dcdcdcd5; /* Set the desired light grey color */
+}
+.featItems:hover {
+      transform: scale(1.05);
+    }
+
+    .featItems p {
+      max-height: 500px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .featItems {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: transform 0.3s;
+      margin-right: 10px; /* Add right margin */
+  margin-left: 10px;  /* Add left margin */
+    }
+
+ section .set{
+  position: absolute;
+  width: 100%;
+  height:100%;
+  top:0;
+  left: 0;
+  pointer-events: none;
+ }
+ section .set div{
+  position:absolute;
+  display:block; 
+ }
+
+ section .set div:nth-child(1)
+ {
+  left: 20%;
+  animation: animate 15s linear infinite;
+  animation-delay: -7s;
+ }
+ section .set div:nth-child(2)
+ {
+  left: 50%;
+  animation: animate 20s linear infinite;
+  animation-delay: -5s;
+ }
+ section .set div:nth-child(3)
+ {
+  left: 70%;
+  animation: animate 20s linear infinite;
+  animation-delay: 0s;
+ }
+ section .set div:nth-child(4)
+ {
+  left: 0%;
+  animation: animate 15s linear infinite;
+  animation-delay: -5s;
+ }
+ section .set div:nth-child(5)
+ {
+  left: 85%;
+  animation: animate 18s linear infinite;
+  animation-delay: -10s;
+ }
+ section .set div:nth-child(6)
+ {
+  left: 0%;
+  animation: animate 12s linear infinite;
+ }
+ section .set div:nth-child(7)
+ {
+  left: 15%;
+  animation: animate 14s linear infinite;
+ }
+ section .set div:nth-child(8)
+ {
+  left: 60%;
+  animation: animate 15s linear infinite;
+ }
+
+ @keyframes animate
+ {
+    0%
+    {
+      opacity: 0;
+      top:-10%;
+      transform:translateX(20px) rotate(0deg);
+    }
+    10%
+    {
+    opacity:1;
+    }
+    20%
+    {
+      transform: translateX(-20) rotate(45deg)
+    }
+    40%
+    {
+      transform: translateX(-20) rotate(90deg)
+    }
+    60%
+    {
+      transform: translateX(20px) rotate(180deg);
+    }
+    80%
+    {
+      transform: translateX(-20px) rotate(180deg);
+    }
+    100%
+    {
+      top:110%;
+      transform: translateX(-20px) rotate(225deg);
+    }
+ }
+
+ .falling-leaves {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Set z-index to -1 to position it behind other elements */
+}
+  </style>
+</head>
+<body>
+  <section class="falling-leaves">
+    <div class="set">
+      <div><img src="..\static\leaves1.png"></div>
+      <div><img src="..\static\leaves2.png"></div>
+      <div><img src="..\static\leaves3.png"></div>
+      <div><img src="..\static\leaves4.png"></div>
+      <div><img src="..\static\leaves1.png"></div>
+      <div><img src="..\static\leaves2.png"></div>
+      <div><img src="..\static\leaves3.png"></div>
+      <div><img src="..\static\leaves4.png"></div>
+    </div>
+  </section>
+  <h1 class="header">CROPWISE.</h1>
+  <nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link activeTab" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="chatbot.html">ChatBot</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="disease.html">Disease Detection</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="rocketchatembed.html">Community</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="helpline.html">Helpline</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="livestream.html">Farmers Live</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="segment.html">Land Segmentation</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div id="google_api">
+    <script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+    <script>
+      function loadGoogleTranslate(){
+        new google.translate.TranslateElement("google_api");
+      }
+    </script>
+    </div>
+
+<div class="box2">
+  <div class="introduction-container">
+    <h1>CropWise. Introduction</h1>
+      <p class="lead col-lg-8">Our innovative agricultural solution is an all-in-one application designed to empower Indian farmers, enhance crop productivity, and bridge the knowledge gap in the agricultural sector. This app serves as a comprehensive platform where farmers can access valuable resources, connect with experts, and leverage modern farming practices to increase their crop yield. Key features include a trained chatbot, direct expert consultations, a government schemes repository, and a farmer community forum.</p>
+    </div>
+  <div class="weather-container col-lg-4">
+    <h3 class="weather-title" >Weather Conditions <img src="{{ weather['icon'] }} " alt="-"> </h3>
+    
+    <div id="temp ">
+      <p>Temperature: {{ weather['current temperature'] }}°C</p>
+    </div>
+    <div id="conditions">
+      <p>Conditions: {{ weather['current condition'] }}</p>
+    </div>
+    <div id="wind">
+      <p>Windspeed: {{ weather['current wind in kmph'] }} km/h</p>
+    </div>
+    <div id="humidity">
+      <p>Humidity: {{ weather['current humidity'] }}%</p>
+    </div>
+    <div id="pressure">
+      <p>Pressure: {{ weather['current pressure in mb'] }} mb</p>
+    </div>
+    <div id="precipitation">
+      <p>Precipitation: {{ weather['current precipitation in mm'] }} mm</p>
+    </div>
+  </div>
+</div>
+
+  <div class="features row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+    <div class="featItems col d-flex align-items-start">
+      <div>
+        <h3 class="fw-bold mb-0 fs-4 ">Language translation</h3>
+        <p>By providing multilingual support, our farming app places a significant emphasis on inclusivity. We are aware that there are many
+          different languages and dialects in India, so we want to make sure that every farmer,
+          regardless of linguistic ability, can use and benefit from our software</p>
+      </div>
+    </div>
+    <div class="featItems col d-flex align-items-start">
+      <div>
+        <h3 class="fw-bold mb-0 fs-4">AI-powered ChatBot</h3>
+        <p>a chatbot with specialized training that acts as a virtual farm assistant.
+          The chatbot can be used by farmers to ask questions about farming procedures, pest
+          management, crop diseases, and other topics. The chatbot offers precise information
+          that is up-to-date and based on recent agricultural research</p>
+      </div>
+    </div>
+    <div class="featItems col d-flex align-items-start">
+      <div>
+        <h3 class="fw-bold mb-0 fs-4">Community Forum</h3>
+        <p>It's essential to foster a sense of camaraderie among farmers.
+          Farmers can connect with colleagues from their area and beyond in the app's forum.
+          They can discuss best practices, seek for advice, and buy, sell or rent farm equipment among themselves. Sharing information and networking are encouraged in this
+          cooperative setting.</p>
+      </div>
+    </div>
+    <div class="featItems col d-flex align-items-start">
+      <div>
+        <h3 class="fw-bold mb-0 fs-4">Crop Disease Detection</h3>
+        <p>Our website revolutionizes Crop Disease Detection by providing farmers with a cutting-edge platform. Through advanced AI-driven algorithms and expert insights, we enable swift identification of crop diseases, empowering farmers to take timely action. This crucial tool ensures higher yields, minimizing losses and securing livelihoods.</p>
+        
+      </div>
+    </div>
+    <div class="featItems col d-flex align-items-start">
+      <div>
+        <h3 class="fw-bold mb-0 fs-4 ">Information on Government Resourses</h3>
+        <p>Our webstite keeps an up-to-date collection of
+          government initiatives and programs for farmers. Farmers may readily find details
+          about local programs, loans, and subsidies. .</p>
+      </div>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>
